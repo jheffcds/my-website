@@ -1,0 +1,238 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.footer {
+    background-color: white;
+    border-top: 1px solid #ccc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+.form-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.form-container p {
+    text-align: center;
+}
+
+.form-container button#show-register,
+.form-container button#show-login {
+    background-color: transparent;
+    color: #007BFF;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.form-container button#show-register:hover,
+.form-container button#show-login:hover {
+    color: #0056b3;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .menu a:hover {
+    text-decoration: underline;
+}
+
+.navbar .toggle-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.user-info .profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .username {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+#signout-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#signout-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .navbar .menu a {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links img {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .title {
+        font-size: 20px;
+    }
+
+    .navbar .menu a {
+        padding: 5px 0;
+    }
+    .user-info .username {
+        font-size: 16px;
+    }
+}

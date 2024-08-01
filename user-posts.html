@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - User Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">User Portfolio</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="user-posts.html" id="user-posts-link">User Posts</a>
+            <a href="posts.html">My Posts</a>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            &#9776;
+        </div>
+    </div>
+    <div class="container">
+        <!-- Introduction Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('aboutMe', 'aboutMeButton')">
+                <span>Introduction</span>
+                <span class="expand-button" id="aboutMeButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="aboutMe">
+                <div class="intro-content">
+                    <img id="profile-picture" src="assets/images/default_profile.jpg" alt="Profile Image" class="profile-image">
+                    <div class="intro-text">
+                        <h2 id="welcome-portfolio">Welcome to the Portfolio!</h2>
+                        <p id="intro-text-about-me"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- About Me Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('aboutMeDetails', 'aboutMeDetailsButton')">
+                <span>About Me</span>
+                <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="aboutMeDetails">
+                <div class="intro-content">
+                    <div class="intro-text" id="aboutMeDetailsText">    
+                        <h3 class="paragraph-title"><u>Personal Information</u></h3>
+                        <p id="personal-info"></p>
+                        
+                        <h3 class="paragraph-title"><u>Journey</u></h3>
+                        <p id="journey"></p>
+                        
+                        <h3 class="paragraph-title"><u>Passions</u></h3>
+                        <p id="passions"></p>
+                        
+                        <h3 class="paragraph-title"><u>Learning and Innovation</u></h3>
+                        <p id="learning-innovation"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Skills/Expertise Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('skills', 'skillsButton')">
+                <span>Skills/Expertise</span>
+                <span class="expand-button" id="skillsButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="skills">                 
+                <h3 class="paragraph-title"><u>IT Skills</u></h3>
+                <div id="it-skills"></div>
+                
+                <h3 class="paragraph-title"><u>Computer and Software Skills</u></h3>
+                <div id="software-skills"></div>
+                
+                <h3 class="paragraph-title"><u>Artistic Skills</u></h3>
+                <div id="artistic-skills"></div>
+                
+                <h3 class="paragraph-title"><u>Language Skills</u></h3>
+                <div id="language-skills"></div>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('resume', 'resumeButton')">
+                <span>Resume/CV</span>
+                <span class="expand-button" id="resumeButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="resume">
+                <iframe id="resume-file" src="" width="100%" height="500px"></iframe>
+                <br>
+                <a id="resume-download" href="" download>Download Resume/CV</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/jhefferson.castro.50"><img src="assets/images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/iamjhefferson/"><img src="assets/images/instagram.png" alt="Instagram"></a>
+            <a href="mailto:jheffersoncastrodossantos@gmail.com"><img src="assets/images/gmail.png" alt="Gmail"></a>
+        </div>
+    </footer>
+
+    <script src="js/searchedPortfolio.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

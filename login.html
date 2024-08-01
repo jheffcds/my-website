@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-login.css">
+</head>
+<body>
+    <div class="form-container" id="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="login-username" required>
+            <br>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account? <button id="show-register">Register here</button></p>
+    </div>
+
+    <div class="form-container" id="register-container" style="display: none;">
+        <h1>Register</h1>
+        <form id="register-form">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="register-email" required>
+            <br>
+            <label for="register-username">Username:</label>
+            <input type="text" id="register-username" name="register-username" required>
+            <br>
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="register-password" required>
+            <br>
+            <label for="register-dob">Date of Birth:</label>
+            <input type="date" id="register-dob" name="register-dob" required>
+            <br>
+            <label for="register-gender">Gender:</label>
+            <select id="register-gender" name="register-gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="register-profile-picture">Profile Picture:</label>
+            <input type="file" id="register-profile-picture" name="register-profile-picture" accept="image/*" required>
+            <br>
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <button id="show-login">Login here</button></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const showRegisterButton = document.getElementById('show-register');
+        const showLoginButton = document.getElementById('show-login');
+        const loginContainer = document.getElementById('login-container');
+        const registerContainer = document.getElementById('register-container');
+    
+        showRegisterButton.addEventListener('click', () => {
+            loginContainer.style.display = 'none';
+            registerContainer.style.display = 'block';
+        });
+    
+        showLoginButton.addEventListener('click', () => {
+            registerContainer.style.display = 'none';
+            loginContainer.style.display = 'block';
+        });
+    
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+    
+            try {
+                const response = await fetch('http://192.168.1.146:8080/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+    
+                const result = await response.json();
+                console.log('Login successful, received data:', result);
+                localStorage.setItem('username', result.username);
+                localStorage.setItem('profilePicture', result.profilePicture); // Store only the relative path
+                localStorage.setItem('userId', result.userId); // Ensure userId is set
+                console.log('LocalStorage set, redirecting to posts.html');
+                
+                // Debug log before redirecting
+                console.log('Redirecting to posts.html now...');
+                window.location.href = 'posts.html';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while logging in the user.');
+            }
+        });
+    
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            const dob = document.getElementById('register-dob').value;
+            const gender = document.getElementById('register-gender').value;
+            const profilePictureFile = document.getElementById('register-profile-picture').files[0];
+    
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('username', username);
+            formData.append('password', password);
+            formData.append('dob', dob);
+            formData.append('gender', gender);
+            formData.append('profilePicture', profilePictureFile);
+    
+            try {
+                const response = await fetch('http://192.168.1.146:8080/register', {  
+                    method: 'POST',
+                    body: formData
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+    
+                const result = await response.json();
+                alert(result.message);
+                loginContainer.style.display = 'block';
+                registerContainer.style.display = 'none';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while registering the user.');
+            }
+        });
+    </script>
+    
+</body>
+</html>

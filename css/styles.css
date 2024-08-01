@@ -1,0 +1,933 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar .menu a:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    flex: 1;
+    border-radius: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.introduction {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.introduction h1 {
+    font-size: 24px;
+}
+
+.introduction p {
+    font-size: 16px;
+}
+
+/* Updated Gallery CSS with 3D Effect */
+.gallery {
+    display: flex;
+    flex-direction: row;
+    background-color: #333; /* Dark background to enhance the 3D effect */
+    border-radius: 10px;
+    justify-content: space-around;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Basic shadow */
+                0 6px 20px rgba(0, 0, 0, 0.19); /* Additional shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    position: relative; /* For ::before pseudo-element */
+}
+
+.gallery:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+}
+
+/* Optional: Add some light effect for more pronounced 3D depth */
+.gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    pointer-events: none; /* Ensure the gradient doesn't interfere with user interactions */
+}
+
+.gallery-left-container,
+.gallery-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-left-container {
+    flex-direction: row;
+}
+
+.gallery-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    margin: 0 -50px;
+}
+
+.gallery-image {
+    max-height: 200px;
+    transition: all 0.5s ease;
+    opacity: 0.4;
+}
+
+.gallery-item.current .gallery-image {
+    max-height: 300px;
+    opacity: 1;
+    z-index: 1;
+    margin: 0 20px;
+}
+
+.gallery-description {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.gallery-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.gallery-buttons button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.gallery-buttons button:hover {
+    background-color: #555;
+}
+
+/* Updated Info Image Container CSS with 3D Effect */
+.info-image-container {
+    position: relative; /* For ::before pseudo-element */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #333; /* Dark background to enhance the 3D effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Basic shadow */
+                0 6px 20px rgba(0, 0, 0, 0.19); /* Additional shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.info-image-container:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+}
+
+/* Optional: Add some light effect for more pronounced 3D depth */
+.info-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    pointer-events: none; /* Ensure the gradient doesn't interfere with user interactions */
+}
+
+.info-container, .image-container {
+    flex: 1;
+    width: calc(50% - 10px);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensure the image fits without distortion */
+    max-width: 200px; /* Control the image size */
+    max-height: 200px; /* Control the image size */
+}
+
+.info-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.info-buttons button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .navbar .menu a {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .video-container {
+        padding: 10px;
+    }
+
+    .introduction {
+        padding: 10px;
+    }
+
+    .introduction h1 {
+        font-size: 20px;
+    }
+
+    .introduction p {
+        font-size: 14px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-left-container {
+        flex-direction: column;
+    }
+
+    .gallery-item {
+        margin: 10px 0;
+    }
+
+    .gallery-image {
+        max-height: 150px;
+    }
+
+    .info-image-container {
+        flex-direction: column;
+    }
+
+    .info-container, .image-container {
+        width: calc(100% - 20px);
+    }
+
+    .gallery-item.current .gallery-image {
+        max-height: 250px;
+        margin: -125px 0;
+    }
+
+    .gallery-buttons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .gallery-buttons button {
+        margin: 5px 0;
+        width: 100px;
+    }
+
+    .info-buttons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .info-buttons button {
+        margin: 5px 0;
+        width: 100px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links img {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .title {
+        font-size: 20px;
+    }
+
+    .navbar .menu a {
+        padding: 5px 0;
+    }
+
+    .introduction h1 {
+        font-size: 18px;
+    }
+
+    .introduction p {
+        font-size: 12px;
+    }
+
+    .gallery-image {
+        max-height: 120px;
+    }
+
+    .gallery-item.current .gallery-image {
+        max-height: 200px;
+    }
+
+    .gallery-buttons button {
+        width: 80px;
+    }
+
+    .info-buttons button {
+        width: 80px;
+    }
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Portfolio configurations */
+.section {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.section-content {
+    display: none;
+    padding: 10px;
+}
+
+.expand-button {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-text h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .intro-text {
+        text-align: center;
+    }
+    .modal-content {
+        width: 95%; 
+        margin: 10% auto; 
+        padding: 10px;
+    }
+
+    .modal-content textarea {
+        width: 100%;
+        height: 150px; 
+    }
+
+    .modal-content button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* New CSS for paragraph titles */
+.paragraph-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+/* New CSS for paragraph titles */
+/* Global styles to include box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add new CSS for delete button */
+.delete-post-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 80px;
+}
+
+.delete-post-button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Ensure the post-header has position: relative to position the delete button correctly */
+.post-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-right: 100px; /* Make room for the delete button */
+}
+
+.post-header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Other existing CSS */
+
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author {
+    font-weight: bold;
+}
+
+.post-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.post-content img,
+.post-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+    max-height: 300px; /* Added this to scale the images and videos smaller */
+}
+
+.section-content-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+.section-content-post input[type="text"],
+.section-content-post input[type="file"],
+.section-content-post .post-button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.section-content-post input[type="text"] {
+    padding: 10px;
+}
+
+.section-content-post input[type="file"] {
+    padding: 10px;
+}
+
+.section-content-post .post-button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.section-content-post .post-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide the default file input */
+/* Hide the default file input */
+#post-images {
+    display: none;
+}
+
+/* Style for the custom file button */
+/* Hide the default file input */
+#post-media {
+    display: none;
+}
+
+/* Style for the custom file button */
+#custom-file-button {
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+#custom-file-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the media previews */
+#media-preview {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+#media-preview img,
+#media-preview video {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Make height the same as width for a square aspect ratio */
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto 40px;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.user-info .profile-picture, 
+.post-header .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+.user-info .username {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+#signout-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#signout-button:hover {
+    background-color: #0056b3;
+}
+#signin-register-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#signin-register-button:hover {
+    background-color: #0056b3;
+}
+.input-container {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+
+.input-container .post-text {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    transition: all 0.5s ease;
+}
+
+.input-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff, #ffff00, #ff0000);
+    background-size: 400% 400%;
+    border-radius: 5px;
+    z-index: 0;
+    animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-user {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+}
+
+#search-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    margin-left: 10px;
+}
+
+.user-list {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 100;
+}
+
+.user-list div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user-list div:hover {
+    background-color: #f0f0f0;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Redirect Button Styling */
+.redirect-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#view-portfolio-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#view-portfolio-button:hover {
+    background-color: #0056b3;
+}
+
+.my-section {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* To position the pseudo-element correctly */
+    border: 2px solid transparent; /* Initial transparent border */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes blinkAnimation {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

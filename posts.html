@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">My Projects</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="#">My Posts</a>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            &#9776;
+        </div>
+    </div>
+
+    <section class="user-info">
+        <img src="" alt="Profile Picture" class="profile-picture">
+        <span class="username"></span>
+        <button id="signout-button">Sign Out</button>
+    </section>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <input type="text" id="search-user" placeholder="Search for a user" class="search-user">
+                <button id="search-button">Search</button>
+                <div id="user-list" class="user-list"></div>
+            </div>
+            <div class="section-content-post">
+                <form id="post-form">
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="text" id="post-text" placeholder="" class="post-text">
+                        </div>
+                        <button type="button" id="custom-file-button">
+                            <img src="assets/images/upload-icon.png" alt="upload images/videos" width="60px" height="60px">
+                        </button>
+                    </div>
+                    <input type="file" id="post-media" name="media" accept="image/*,video/*" multiple>
+                    <div id="media-preview"></div>
+                    <button type="submit" id="post-button" class="post-button">Post</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-header">
+                <span>My Posts</span>
+            </div>
+            <div class="section-content-post" id="posts-container">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Profile Picture Options</h2>
+            <button id="view-profile-button">View Profile Picture</button>
+            <input type="file" id="change-profile-input" accept="image/*" style="display:none;">
+            <button id="change-profile-button">Change Profile Picture</button>
+        </div>
+    </div>
+     
+    <footer>
+        <p>&copy; 2024 All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/jhefferson.castro.50"><img src="assets/images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/iamjhefferson/"><img src="assets/images/instagram.png" alt="Instagram"></a>
+            <a href="mailto:jheffersoncastrodossantos@gmail.com"><img src="assets/images/gmail.png" alt="Gmail"></a>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script src="js/posts.js"></script>
+</body>
+</html>

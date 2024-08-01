@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">My Portfolio</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="#">Portfolio</a>
+            <a href="posts.html">My Posts</a>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            &#9776;
+        </div>
+    </div>
+    <div class="container">
+        <!-- Introduction Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('aboutMe', 'aboutMeButton')">
+                <span>Introduction</span>
+                <span class="expand-button" id="aboutMeButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="aboutMe">
+                <div class="intro-content">
+                    <img id="profile-picture" src="assets/images/default_profile.jpg" alt="Profile Image" class="profile-image">
+                    <div class="intro-text">
+                        <h2 id="welcome-portfolio">Welcome to My Portfolio!</h2>
+                        <p id="intro-text-about-me"></p>
+                        <button class="edit-button" data-section="intro-text-about-me">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- About Me Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('aboutMeDetails', 'aboutMeDetailsButton')">
+                <span>About Me</span>
+                <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="aboutMeDetails">
+                <div class="intro-content">
+                    <div class="intro-text" id="aboutMeDetailsText">    
+                        <h3 class="paragraph-title"><u>Personal Information</u></h3>
+                        <p id="personal-info"></p>
+                        <button class="edit-button" data-section="personal-info">Edit</button>
+                        
+                        <h3 class="paragraph-title"><u>Journey</u></h3>
+                        <p id="journey"></p>
+                        <button class="edit-button" data-section="journey">Edit</button>
+                        
+                        <h3 class="paragraph-title"><u>Passions</u></h3>
+                        <p id="passions"></p>
+                        <button class="edit-button" data-section="passions">Edit</button>
+                        
+                        <h3 class="paragraph-title"><u>Learning and Innovation</u></h3>
+                        <p id="learning-innovation"></p>
+                        <button class="edit-button" data-section="learning-innovation">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Skills/Expertise Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('skills', 'skillsButton')">
+                <span>Skills/Expertise</span>
+                <span class="expand-button" id="skillsButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="skills">                 
+                <h3 class="paragraph-title"><u>IT Skills</u></h3>
+                <div id="it-skills"></div>
+                <button class="edit-button" data-section="it-skills">Edit</button>
+                
+                <h3 class="paragraph-title"><u>Computer and Software Skills</u></h3>
+                <div id="software-skills"></div>
+                <button class="edit-button" data-section="software-skills">Edit</button>
+                
+                <h3 class="paragraph-title"><u>Artistic Skills and Competences</u></h3>
+                <div id="artistic-skills"></div>
+                <button class="edit-button" data-section="artistic-skills">Edit</button>
+                
+                <h3 class="paragraph-title"><u>Language Skills</u></h3>
+                <div id="language-skills"></div>
+                <button class="edit-button" data-section="language-skills">Edit</button>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('resume', 'resumeButton')">
+                <span>Resume/CV</span>
+                <span class="expand-button" id="resumeButton">&#10095;</span>
+            </div>
+            <div class="section-content" id="resume">
+                <iframe src="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" width="100%" height="500px"></iframe>
+                <br>
+                <a href="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" download>Download Resume/CV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Editing Section Content -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Content</h2>
+            <form id="edit-form">
+                <textarea id="edit-textarea" rows="10" cols="50"></textarea>
+                <input type="hidden" id="edit-section-id">
+                <button type="button" onclick="saveContent()">Save</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/jhefferson.castro.50"><img src="assets/images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/iamjhefferson/"><img src="assets/images/instagram.png" alt="Instagram"></a>
+            <a href="mailto:jheffersoncastrodossantos@gmail.com"><img src="assets/images/gmail.png" alt="Gmail"></a>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script>
+        // Data for the charts
+        const programmingSkillsData = {
+            labels: ['JavaScript', 'Python', 'Java', 'C++', 'PHP', 'MongoDB', 'SQL','HTML','React','Github'],
+            datasets: [{
+                label: 'Competence (%)',
+                data: [85, 75, 80, 70, 65,60,70,100,50,90],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const officeSkillsData = {
+            labels: ['Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams'],
+            datasets: [{
+                label: 'Competence (%)',
+                data: [90, 95, 85, 90,100],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const languageSkillsData = {
+            labels: ['Portuguese', 'Italian', 'English', 'Spanish', 'French'],
+            datasets: [{
+                label: 'Competence (%)',
+                data: [100, 100, 90, 65, 50],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Create the charts
+        const ctx1 = document.getElementById('programmingSkillsChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'radar',
+            data: programmingSkillsData,
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('officeSkillsChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'radar',
+            data: officeSkillsData,
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        const ctx3 = document.getElementById('languageSkillsChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'radar',
+            data: languageSkillsData,
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
