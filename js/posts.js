@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
     const username = localStorage.getItem('username');
     const profilePicture = localStorage.getItem('profilePicture');
     const userId = localStorage.getItem('userId');
 
     if (username && profilePicture && userId) {
         document.querySelector('.username').textContent = username;
-        document.querySelector('.profile-picture').src = `http://192.168.1.146:8080${profilePicture}`;
+        document.querySelector('.profile-picture').src = `${API_BASE_URL}${profilePicture}`;
 
         try {
-            const response = await fetch(`http://192.168.1.146:8080/user-posts/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/user-posts/${userId}`);
             const posts = await response.json();
             const postsContainer = document.getElementById('posts-container');
 
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 postElement.innerHTML = `
                     <div class="post-header">
                         <div class="post-header-left">
-                            <img src="http://192.168.1.146:8080${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                            <img src="${API_BASE_URL}${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                             <div class="post-info">
                                 <span class="post-author">${post.userId.username}</span>
                                 <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="post-content">
                         <p>${post.content}</p>
                         ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                            const fullUrl = `http://192.168.1.146:8080${url}`;
+                            const fullUrl = `${API_BASE_URL}${url}`;
                             if (url.endsWith('.mp4')) {
                                 return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
                             } else {
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function deletePost(postId) {
         try {
-            const response = await fetch(`http://192.168.1.146:8080/delete-post/${postId}`, {
+            const response = await fetch(`${API_BASE_URL}/delete-post/${postId}`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const query = searchInput.value.trim();
         if (query) {
             try {
-                const response = await fetch(`http://192.168.1.146:8080/search-users?query=${query}`);
+                const response = await fetch(`${API_BASE_URL}/search-users?query=${query}`);
                 const users = await response.json();
                 displayUserList(users);
             } catch (error) {
@@ -167,7 +168,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             formData.append('profilePicture', file);
 
             try {
-                const response = await fetch('http://192.168.1.146:8080/update-profile-picture', {
+                const response = await fetch(`${API_BASE_URL}/update-profile-picture`, {
                     method: 'POST',
                     body: formData
                 });
@@ -177,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 const result = await response.json();
-                profilePictureElement.src = `http://192.168.1.146:8080${result.profilePicture}`;
+                profilePictureElement.src = `${API_BASE_URL}${result.profilePicture}`;
                 localStorage.setItem('profilePicture', result.profilePicture);
                 modal.style.display = 'none';
                 location.reload();  // Reload the page to reflect the new profile picture
@@ -232,7 +233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         Array.from(media).forEach(file => formData.append('media', file));
 
         try {
-            const response = await fetch('http://192.168.1.146:8080/create-post', {
+            const response = await fetch(`${API_BASE_URL}/create-post`, {
                 method: 'POST',
                 body: formData
             });

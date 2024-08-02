@@ -10,6 +10,7 @@ document.getElementById('show-register').addEventListener('click', function() {
 
         document.getElementById('register-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
             const email = document.getElementById('register-email').value;
             const username = document.getElementById('register-username').value;
             const password = document.getElementById('register-password').value;
@@ -17,7 +18,7 @@ document.getElementById('show-register').addEventListener('click', function() {
             const gender = document.getElementById('register-gender').value;
 
             try {
-                const response = await fetch('http://192.168.1.146:8080/register', {
+                const response = await fetch(`${API_BASE_URL}/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, username, password, dob, gender })

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('userId');
 
@@ -24,6 +25,7 @@ function toggleSection(sectionId, buttonId) {
 }
 
 async function fetchData(userId) {
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
     try {
         // Retrieve user info from localStorage
         const userInfo = JSON.parse(localStorage.getItem('searchedUser'));
@@ -33,11 +35,11 @@ async function fetchData(userId) {
             return;
         }
 
-        document.getElementById('profile-pxicture').src = `http://localhost:8080${userInfo.profilePicture}`;
+        document.getElementById('profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
         document.getElementById('welcome-portfolio').innerText = `Welcome to ${userInfo.username}'s Portfolio!`;
 
         // Fetch and set sections content
-        const response = await fetch(`http://localhost:8080/get-sections/${userId}`);
+        const response = await fetch(`${API_BASE_URL}/get-sections/${userId}`);
         const data = await response.json();
 
         document.getElementById('intro-text-about-me').innerText = data['intro-text-about-me'] || '';

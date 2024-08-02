@@ -1,18 +1,19 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const userId = '66a8aa49fa30aa3e4149c0b0'; // Static user ID
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
 
     try {
         // Fetch user info
-        const userInfoResponse = await fetch(`http://localhost:8080/users/${userId}`);
+        const userInfoResponse = await fetch(`${API_BASE_URL}/users/${userId}`);
         const userInfo = await userInfoResponse.json();
 
         // Update the username in the profile and title
         document.querySelector('.username').textContent = userInfo.username;
-        document.querySelector('.profile-picture').src = `http://localhost:8080${userInfo.profilePicture}`;
+        document.querySelector('.profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
         document.querySelector('.section-header span').textContent = `${userInfo.username}'s Posts`;
 
         // Fetch user posts
-        const postsResponse = await fetch(`http://localhost:8080/user-posts/${userId}`);
+        const postsResponse = await fetch(`${API_BASE_URL}/user-posts/${userId}`);
         const posts = await postsResponse.json();
         displayPosts(posts);
     } catch (error) {
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             postElement.innerHTML = `
                 <div class="post-header">
                     <div class="post-header-left">
-                        <img src="http://localhost:8080${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                        <img src="${API_BASE_URL}${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                         <div class="post-info">
                             <span class="post-author">${post.userId.username}</span>
                             <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="post-content">
                     <p>${post.content}</p>
                     ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                        const fullUrl = `http://localhost:8080${url}`;
+                        const fullUrl = `${API_BASE_URL}${url}`;
                         if (url.endsWith('.mp4')) {
                             return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
                         } else {

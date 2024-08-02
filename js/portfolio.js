@@ -51,8 +51,9 @@ async function saveContent() {
     const sectionId = document.getElementById('edit-section-id').value;
     const content = document.getElementById('edit-textarea').value;
     const userId = localStorage.getItem('userId');
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
 
-    const response = await fetch('http://localhost:8080/save-section', {
+    const response = await fetch(`${API_BASE_URL}/save-section`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -70,7 +71,9 @@ async function saveContent() {
 
 async function fetchData() {
     const userId = localStorage.getItem('userId');
-    const response = await fetch(`http://localhost:8080/get-sections/${userId}`);
+    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
+
+    const response = await fetch(`${API_BASE_URL}/get-sections/${userId}`);
     const data = await response.json();
 
     document.getElementById('intro-text-about-me').innerText = data['intro-text-about-me'] || '';
@@ -80,7 +83,7 @@ async function fetchData() {
     document.getElementById('learning-innovation').innerText = data['learning-innovation'] || '';
 
     // Fetch and set profile picture
-    const userInfoResponse = await fetch(`http://localhost:8080/users/${userId}`);
+    const userInfoResponse = await fetch(`${API_BASE_URL}/users/${userId}`);
     const userInfo = await userInfoResponse.json();
-    document.getElementById('profile-picture').src = `http://localhost:8080${userInfo.profilePicture}`;
+    document.getElementById('profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
 }
