@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="post-header-left">
                         <img src="${post.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                         <div class="post-info">
-                            <span class="post-author">${post.userId.username}</span>
+                            <span class="post-author">${post.username}</span>
                             <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
                         </div>
                     </div>
