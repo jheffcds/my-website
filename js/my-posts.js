@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             postElement.innerHTML = `
                 <div class="post-header">
                     <div class="post-header-left">
-                        <img src="${post.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                        <img src="${post.imageUrl[0]}" alt="Profile Picture" class="profile-pic"> 
                         <div class="post-info">
-                            <span class="post-author">${post.username}</span>
+                            <span class="post-author">${userInfo.username}</span>
                             <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
                         </div>
                     </div>
@@ -40,13 +40,39 @@ document.addEventListener('DOMContentLoaded', async () => {
                         if (url.endsWith('.mp4')) {
                             return `<video controls><source src="${url}" type="video/mp4"></video>`;
                         } else {
-                            return `<img src="${url}" alt="Post Media">`;
+                            return `<img src="${url}" alt="Post Media" class="post-image">`;
                         }
                     }).join('') : ''}
                 </div>
             `;
             postsContainer.appendChild(postElement);
         });
+
+        // Attach click event listeners to post images
+        document.querySelectorAll('.post-image').forEach(img => {
+            img.addEventListener('click', () => {
+                openImageModal(img.src);
+            });
+        });
+    }
+
+    function openImageModal(src) {
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeImageModal = document.querySelector('.close-image-modal');
+
+        modalImage.src = src;
+        imageModal.style.display = 'block';
+
+        closeImageModal.onclick = function() {
+            imageModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        }
     }
 
     // Sign-in/Register functionality
@@ -54,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'login.html';
     });
 
-    // Modal functionality
+    // Profile modal functionality
     const modal = document.getElementById('profileModal');
     const closeBtn = modal.querySelector('.close');
     const profilePictureElement = document.querySelector('.profile-picture');
