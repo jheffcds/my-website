@@ -1,20 +1,18 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const userId = '66acf0a2fc50146e44e42574'; // Static user ID
-    const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
-
     try {
-        // Fetch user info
-        const userInfoResponse = await fetch(`${API_BASE_URL}/users/${userId}`);
-        const userInfo = await userInfoResponse.json();
+        // Fetch data from the JSON file
+        const response = await fetch('assets/data/posts.json');
+        const data = await response.json();
+
+        const userInfo = data.userInfo;
+        const posts = data.posts;
 
         // Update the username in the profile and title
         document.querySelector('.username').textContent = userInfo.username;
-        document.querySelector('.profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
+        document.querySelector('.profile-picture').src = userInfo.profilePicture;
         document.querySelector('.section-header span').textContent = `${userInfo.username}'s Posts`;
 
-        // Fetch user posts
-        const postsResponse = await fetch(`${API_BASE_URL}/user-posts/${userId}`);
-        const posts = await postsResponse.json();
+        // Display the posts
         displayPosts(posts);
     } catch (error) {
         console.error('Error fetching user info or posts:', error);
@@ -29,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             postElement.innerHTML = `
                 <div class="post-header">
                     <div class="post-header-left">
-                        <img src="${API_BASE_URL}${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                        <img src="${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                         <div class="post-info">
                             <span class="post-author">${post.userId.username}</span>
                             <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
@@ -39,11 +37,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="post-content">
                     <p>${post.content}</p>
                     ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                        const fullUrl = `${API_BASE_URL}${url}`;
                         if (url.endsWith('.mp4')) {
-                            return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
+                            return `<video controls><source src="${url}" type="video/mp4"></video>`;
                         } else {
-                            return `<img src="${fullUrl}" alt="Post Media">`;
+                            return `<img src="${url}" alt="Post Media">`;
                         }
                     }).join('') : ''}
                 </div>

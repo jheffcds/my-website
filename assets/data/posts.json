@@ -1,0 +1,20 @@
+{
+    "userInfo": {
+        "username": "Jhefferson",
+        "profilePicture": "assets/images/myself_profile.jpg"
+    },
+    "posts": [
+        {
+            "userId": "66acf0a2fc50146e44e42574",
+            "content": "This is the first post.",
+            "imageUrl": ["assets/images/image1.jpg"],
+            "createdAt": "2023-07-31T12:34:56Z"
+        },
+        {
+            "userId": "66acf0a2fc50146e44e42574",
+            "content": "This is the second post.",
+            "imageUrl": ["assets/images/image2.jpg"],
+            "createdAt": "2023-08-01T09:45:00Z"
+        }
+    ]
+}
