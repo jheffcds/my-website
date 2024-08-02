@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const userId = '66a8aa49fa30aa3e4149c0b0'; // Static user ID
+    const userId = '66acf0a2fc50146e44e42574'; // Static user ID
     const API_BASE_URL = 'https://my-website-backend-l922.onrender.com';
 
     try {
