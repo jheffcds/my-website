@@ -934,3 +934,10 @@ canvas {
         height: 80px;
     }
 }
+/* Modal Image Styling */
+.modal-content-my-posts img {
+    max-width: 90%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
