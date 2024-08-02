@@ -275,154 +275,6 @@ footer p {
     margin: 0 5px;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .navbar .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: black;
-        position: absolute;
-        top: 60px;
-        left: 0;
-    }
-
-    .navbar .menu a {
-        margin: 10px 0;
-        padding: 10px 0;
-    }
-
-    .toggle-button {
-        display: block;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    .video-container {
-        padding: 10px;
-    }
-
-    .introduction {
-        padding: 10px;
-    }
-
-    .introduction h1 {
-        font-size: 20px;
-    }
-
-    .introduction p {
-        font-size: 14px;
-    }
-
-    .gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .gallery-left-container {
-        flex-direction: column;
-    }
-
-    .gallery-item {
-        margin: 10px 0;
-    }
-
-    .gallery-image {
-        max-height: 150px;
-    }
-
-    .info-image-container {
-        flex-direction: column;
-    }
-
-    .info-container, .image-container {
-        width: calc(100% - 20px);
-    }
-
-    .gallery-item.current .gallery-image {
-        max-height: 250px;
-        margin: -125px 0;
-    }
-
-    .gallery-buttons {
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
-
-    .gallery-buttons button {
-        margin: 5px 0;
-        width: 100px;
-    }
-
-    .info-buttons {
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
-
-    .info-buttons button {
-        margin: 5px 0;
-        width: 100px;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .social-links img {
-        margin: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar .title {
-        font-size: 20px;
-    }
-
-    .navbar .menu a {
-        padding: 5px 0;
-    }
-
-    .introduction h1 {
-        font-size: 18px;
-    }
-
-    .introduction p {
-        font-size: 12px;
-    }
-
-    .gallery-image {
-        max-height: 120px;
-    }
-
-    .gallery-item.current .gallery-image {
-        max-height: 200px;
-    }
-
-    .gallery-buttons button {
-        width: 80px;
-    }
-
-    .info-buttons button {
-        width: 80px;
-    }
-    .profile-image {
-        width: 80px;
-        height: 80px;
-    }
-}
-
 /* Portfolio configurations */
 .section {
     margin: 20px 0;
@@ -478,37 +330,7 @@ footer p {
     margin-top: 0;
 }
 
-@media (max-width: 768px) {
-    .intro-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .profile-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .intro-text {
-        text-align: center;
-    }
-    .modal-content {
-        width: 95%; 
-        margin: 10% auto; 
-        padding: 10px;
-    }
-
-    .modal-content textarea {
-        width: 100%;
-        height: 150px; 
-    }
-
-    .modal-content button {
-        width: 100%;
-        padding: 10px;
-    }
-}
 
 /* New CSS for paragraph titles */
 .paragraph-title {
@@ -700,12 +522,7 @@ canvas {
     height: auto !important;
 }
 
-@media (max-width: 768px) {
-    .chart-container {
-        width: 100%;
-        margin: 10px 0;
-    }
-}
+
 
 
 /* User Info Styles */
@@ -929,5 +746,191 @@ canvas {
     }
     50% {
         opacity: 0;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .navbar .menu a {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .video-container {
+        padding: 10px;
+    }
+
+    .introduction {
+        padding: 10px;
+    }
+
+    .introduction h1 {
+        font-size: 20px;
+    }
+
+    .introduction p {
+        font-size: 14px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-left-container {
+        flex-direction: column;
+    }
+
+    .gallery-item {
+        margin: 10px 0;
+    }
+
+    .gallery-image {
+        max-height: 150px;
+    }
+
+    .info-image-container {
+        flex-direction: column;
+    }
+
+    .info-container, .image-container {
+        width: calc(100% - 20px);
+    }
+
+    .gallery-item.current .gallery-image {
+        max-height: 250px;
+        margin: -125px 0;
+    }
+
+    .gallery-buttons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .gallery-buttons button {
+        margin: 5px 0;
+        width: 100px;
+    }
+
+    .info-buttons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .info-buttons button {
+        margin: 5px 0;
+        width: 100px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links img {
+        margin: 5px;
+    }
+
+    .chart-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .intro-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .intro-text {
+        text-align: center;
+    }
+    .modal-content {
+        width: 95%; 
+        margin: 10% auto; 
+        padding: 10px;
+    }
+
+    .modal-content textarea {
+        width: 100%;
+        height: 150px; 
+    }
+
+    .modal-content button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .title {
+        font-size: 20px;
+    }
+
+    .navbar .menu a {
+        padding: 5px 0;
+    }
+    .user-info .username {
+        font-size: 16px;
+    }
+
+    .introduction h1 {
+        font-size: 18px;
+    }
+
+    .introduction p {
+        font-size: 12px;
+    }
+
+    .gallery-image {
+        max-height: 120px;
+    }
+
+    .gallery-item.current .gallery-image {
+        max-height: 200px;
+    }
+
+    .gallery-buttons button {
+        width: 80px;
+    }
+
+    .info-buttons button {
+        width: 80px;
+    }
+    .profile-image {
+        width: 80px;
+        height: 80px;
     }
 }
