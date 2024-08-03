@@ -1,8 +1,4 @@
 let originalText = '';
-
-const toggleButton = document.getElementById('toggle-button');
-    toggleButton.addEventListener('click', toggleMenu);
-
 function toggleSection(id) {
     const sectionContent = document.getElementById(id);
     const button = document.getElementById(id + 'Button');
@@ -21,3 +17,7 @@ function toggleSection(id) {
         }
     }
 }
+
+// Add the event listener for the hamburger menu
+const toggleButton = document.getElementById('toggle-button');
+toggleButton.addEventListener('click', toggleMenu);
