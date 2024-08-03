@@ -9,122 +9,124 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="navbar">
-        <div class="title">My Portfolio</div>
-        <div class="menu" id="menu">
-            <a href="index.html">Home</a>
-            <a href="#">Portfolio</a>
-            <a href="my-posts.html">My Posts</a>
-        </div>
-        <div class="toggle-button" id="toggle-button">
-            &#9776;
-        </div>
-    </div>
-    <div class="container">
-        <!-- Introduction Section -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('aboutMe')">
-                <span>Introduction</span>
-                <span class="expand-button" id="aboutMeButton">&#10095;</span>
+    <div id="app">
+        <div class="navbar">
+            <div class="title">My Portfolio</div>
+            <div class="menu" id="menu">
+                <a href="index.html">Home</a>
+                <a href="#">Portfolio</a>
+                <a href="my-posts.html">My Posts</a>
             </div>
-            <div class="section-content" id="aboutMe">
-                <div class="intro-content">
-                    <img src="assets/images/myself_profile.jpg" alt="Profile Image" class="profile-image">
-                    <div class="intro-text" id="typeEffect">
-                        <h2>Welcome to My Portfolio!</h2>
-                        <p>Hi, I'm Jhefferson Castro Dos Santos, a passionate Data Analyst and Cloud Migration Trainee at AFAST Accenture Financial Advanced Solutions in Padova, Italy. My journey in the world of technology is fueled by curiosity and an open mind, always eager to embrace new challenges and experiences.</p>
+            <div class="toggle-button" id="toggle-button">
+                &#9776;
+            </div>
+        </div>
+        <div class="container">
+            <!-- Introduction Section -->
+            <div class="section">
+                <div class="section-header" onclick="toggleSection('aboutMe')">
+                    <span>Introduction</span>
+                    <span class="expand-button" id="aboutMeButton">&#10095;</span>
+                </div>
+                <div class="section-content" id="aboutMe">
+                    <div class="intro-content">
+                        <img src="assets/images/myself_profile.jpg" alt="Profile Image" class="profile-image">
+                        <div class="intro-text" id="typeEffect">
+                            <h2>Welcome to My Portfolio!</h2>
+                            <p>Hi, I'm Jhefferson Castro Dos Santos, a passionate Data Analyst and Cloud Migration Trainee at AFAST Accenture Financial Advanced Solutions in Padova, Italy. My journey in the world of technology is fueled by curiosity and an open mind, always eager to embrace new challenges and experiences.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    
-        <!-- About Me Section -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('aboutMeDetails')">
-                <span>About Me</span>
-                <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
-            </div>
-            <div class="section-content" id="aboutMeDetails">
-                <div class="intro-content">
-                    <div class="intro-text" id="aboutMeDetailsText">    
-                        <h3 class="paragraph-title"><u>Personal Information</u></h3>
-                        <p>My name is Jhefferson, and I was born in Brazil on September 5, 1998.</p>
-                        
-                        <h3 class="paragraph-title"><u>Journey 🇧🇷🇮🇹🇨🇭</u></h3>
-                        <p>At the age of 9, my family and I embarked on a journey to Italy. This transition brought numerous challenges and opened up new opportunities. Learning a new language and adapting to a different culture were some of the most significant hurdles I faced. These experiences required me to be flexible and resilient, enabling me to adapt to any environment. This period of my life was marked by significant learning and growth, shaping both my personal and professional development.
+        
+            <!-- About Me Section -->
+            <div class="section">
+                <div class="section-header" onclick="toggleSection('aboutMeDetails')">
+                    <span>About Me</span>
+                    <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
+                </div>
+                <div class="section-content" id="aboutMeDetails">
+                    <div class="intro-content">
+                        <div class="intro-text" id="aboutMeDetailsText">    
+                            <h3 class="paragraph-title"><u>Personal Information</u></h3>
+                            <p>My name is Jhefferson, and I was born in Brazil on September 5, 1998.</p>
+                            
+                            <h3 class="paragraph-title"><u>Journey 🇧🇷🇮🇹🇨🇭</u></h3>
+                            <p>At the age of 9, my family and I embarked on a journey to Italy. This transition brought numerous challenges and opened up new opportunities. Learning a new language and adapting to a different culture were some of the most significant hurdles I faced. These experiences required me to be flexible and resilient, enabling me to adapt to any environment. This period of my life was marked by significant learning and growth, shaping both my personal and professional development.
 
-                        At the age of 20, I moved to Switzerland to study Computer Science. This move introduced a new set of challenges as I needed to adapt to studying and communicating in English. This experience further honed my adaptability and resilience, contributing significantly to my academic and personal growth.
-                        </p>
-                        
-                        <h3 class="paragraph-title"><u>Passions</u></h3>
-                        <p>My passions include technology, art, sports, and traveling. These interests help me stay balanced and inspired, fueling my creativity and drive in various aspects of my personal experience.</p>
-                        
-                        <h3 class="paragraph-title"><u>Learning and Innovation</u></h3>
-                        <p>Throughout my journey, I have cultivated a deep love for learning and innovation. I am always seeking new ways to expand my horizons and contribute meaningfully to the worlds of art and technology. This continuous quest for knowledge and improvement is a cornerstone of my personal and professional life.</p>
+                            At the age of 20, I moved to Switzerland to study Computer Science. This move introduced a new set of challenges as I needed to adapt to studying and communicating in English. This experience further honed my adaptability and resilience, contributing significantly to my academic and personal growth.
+                            </p>
+                            
+                            <h3 class="paragraph-title"><u>Passions</u></h3>
+                            <p>My passions include technology, art, sports, and traveling. These interests help me stay balanced and inspired, fueling my creativity and drive in various aspects of my personal experience.</p>
+                            
+                            <h3 class="paragraph-title"><u>Learning and Innovation</u></h3>
+                            <p>Throughout my journey, I have cultivated a deep love for learning and innovation. I am always seeking new ways to expand my horizons and contribute meaningfully to the worlds of art and technology. This continuous quest for knowledge and improvement is a cornerstone of my personal and professional life.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    
-    
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('skills')">
-                <span>Skills/Expertise</span>
-                <span class="expand-button" id="skillsButton">&#10095;</span>
-            </div>
-            <div class="section-content" id="skills">                 
-                        <h3 class="paragraph-title"><u>IT Skills</u></h3>
-                        <p>- Programming languages mastered: Java, Python, C, PHP, C++</p>
-                        <p>- Database Management Tools: MongoDB and SQL</p>
-                        <p>- Webpage development: Javascript, CSS, HTML, React, Github </p>
-                        <div class="chart-container">
-                            <canvas id="programmingSkillsChart"></canvas>
-                        </div>
+        
+        
+            <div class="section">
+                <div class="section-header" onclick="toggleSection('skills')">
+                    <span>Skills/Expertise</span>
+                    <span class="expand-button" id="skillsButton">&#10095;</span>
+                </div>
+                <div class="section-content" id="skills">                 
+                            <h3 class="paragraph-title"><u>IT Skills</u></h3>
+                            <p>- Programming languages mastered: Java, Python, C, PHP, C++</p>
+                            <p>- Database Management Tools: MongoDB and SQL</p>
+                            <p>- Webpage development: Javascript, CSS, HTML, React, Github </p>
+                            <div class="chart-container">
+                                <canvas id="programmingSkillsChart"></canvas>
+                            </div>
 
-                        <h3 class="paragraph-title"><u>Computer and Software skills</u></h3>
-                        <p>- Coding: Visual Studio Code, Sublime Text, JetBrains IntelliJ IDEA, Atom, Android Studio and PyCharm.</p>
-                        <p>- Office 365 Products: Word, Excel, Power Point, Outlook and Teams.</p>
-                        <p>- Operating Systems: Linux, Windows and MacOS. </p>
-                        <div class="chart-container">
-                            <canvas id="officeSkillsChart"></canvas>
-                        </div>
-                        
-                        <h3 class="paragraph-title"><u>Artistic skills and competences</u></h3>
-                        <p>Digital painting, artistic (brush) painting, artisanal handicraft.</p>
-                        <p>Blender Software Skills: 3D Modeling, Texturing and Shading, Animation, Rendering and Lightning.</p>
-                        <p>Unreal Engine 5 Skills (Game Development): 3D Asset Integration, Level Design, Blueprint scripting, Material and Shader Creation, Lighting and Rendering, Animation Integration, Physics and Simulations and User Interface Design.</p>
+                            <h3 class="paragraph-title"><u>Computer and Software skills</u></h3>
+                            <p>- Coding: Visual Studio Code, Sublime Text, JetBrains IntelliJ IDEA, Atom, Android Studio and PyCharm.</p>
+                            <p>- Office 365 Products: Word, Excel, Power Point, Outlook and Teams.</p>
+                            <p>- Operating Systems: Linux, Windows and MacOS. </p>
+                            <div class="chart-container">
+                                <canvas id="officeSkillsChart"></canvas>
+                            </div>
+                            
+                            <h3 class="paragraph-title"><u>Artistic skills and competences</u></h3>
+                            <p>Digital painting, artistic (brush) painting, artisanal handicraft.</p>
+                            <p>Blender Software Skills: 3D Modeling, Texturing and Shading, Animation, Rendering and Lightning.</p>
+                            <p>Unreal Engine 5 Skills (Game Development): 3D Asset Integration, Level Design, Blueprint scripting, Material and Shader Creation, Lighting and Rendering, Animation Integration, Physics and Simulations and User Interface Design.</p>
 
-                        <h3 class="paragraph-title"><u>Language Skills</u></h3>
-                        <p><b>Italian</b> - Native language</p>
-                        <p><b>Portuguese</b> - Native language</p>
-                        <p><b>English</b> - C1 level</p>
-                        <p>Spanish - A2 level</p>
-                        <p>French - A2 level</p>
-                        <div class="chart-container">
-                            <canvas id="languageSkillsChart"></canvas>
-                        </div>
+                            <h3 class="paragraph-title"><u>Language Skills</u></h3>
+                            <p><b>Italian</b> - Native language</p>
+                            <p><b>Portuguese</b> - Native language</p>
+                            <p><b>English</b> - C1 level</p>
+                            <p>Spanish - A2 level</p>
+                            <p>French - A2 level</p>
+                            <div class="chart-container">
+                                <canvas id="languageSkillsChart"></canvas>
+                            </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection('resume')">
+                    <span>Resume/CV</span>
+                    <span class="expand-button" id="resumeButton">&#10095;</span>
+                </div>
+                <div class="section-content" id="resume">
+                <iframe src="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" width="100%" height="500px"></iframe>
+                <br>
+                <a href="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" download>Download Resume/CV</a>
             </div>
         </div>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('resume')">
-                <span>Resume/CV</span>
-                <span class="expand-button" id="resumeButton">&#10095;</span>
+        <footer>
+            <p>&copy; 2024 All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><img src="assets/images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="assets/images/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="assets/images/gmail.png" alt="Gmail"></a>
             </div>
-            <div class="section-content" id="resume">
-            <iframe src="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" width="100%" height="500px"></iframe>
-            <br>
-            <a href="assets/Download-files/Jhefferson-Castro-CV-EN.pdf" download>Download Resume/CV</a>
-        </div>
+        </footer>
     </div>
-    <footer>
-        <p>&copy; 2024 All rights reserved.</p>
-        <div class="social-links">
-            <a href="#"><img src="assets/images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="assets/images/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="assets/images/gmail.png" alt="Gmail"></a>
-        </div>
-    </footer>
     <script src="js/scripts.js"></script>
     <script src="js/portfolio.js"></script>
     <script>
