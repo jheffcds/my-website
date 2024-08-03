@@ -3,97 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects - User Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>User Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="navbar">
-        <div class="title">User Portfolio</div>
+        <div class="title">User Posts</div>
         <div class="menu" id="menu">
             <a href="index.html">Home</a>
-            <a href="user-posts.html" id="user-posts-link">User Posts</a>
-            <a href="posts.html">My Posts</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="my-posts.html">My Posts</a>
         </div>
         <div class="toggle-button" id="toggle-button">
             &#9776;
         </div>
     </div>
-    <div class="container">
-        <!-- Introduction Section -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('aboutMe', 'aboutMeButton')">
-                <span>Introduction</span>
-                <span class="expand-button" id="aboutMeButton">&#10095;</span>
-            </div>
-            <div class="section-content" id="aboutMe">
-                <div class="intro-content">
-                    <img id="profile-picture" src="assets/images/default_profile.jpg" alt="Profile Image" class="profile-image">
-                    <div class="intro-text">
-                        <h2 id="welcome-portfolio">Welcome to the Portfolio!</h2>
-                        <p id="intro-text-about-me"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- About Me Section -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('aboutMeDetails', 'aboutMeDetailsButton')">
-                <span>About Me</span>
-                <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
-            </div>
-            <div class="section-content" id="aboutMeDetails">
-                <div class="intro-content">
-                    <div class="intro-text" id="aboutMeDetailsText">    
-                        <h3 class="paragraph-title"><u>Personal Information</u></h3>
-                        <p id="personal-info"></p>
-                        
-                        <h3 class="paragraph-title"><u>Journey</u></h3>
-                        <p id="journey"></p>
-                        
-                        <h3 class="paragraph-title"><u>Passions</u></h3>
-                        <p id="passions"></p>
-                        
-                        <h3 class="paragraph-title"><u>Learning and Innovation</u></h3>
-                        <p id="learning-innovation"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Skills/Expertise Section -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('skills', 'skillsButton')">
-                <span>Skills/Expertise</span>
-                <span class="expand-button" id="skillsButton">&#10095;</span>
-            </div>
-            <div class="section-content" id="skills">                 
-                <h3 class="paragraph-title"><u>IT Skills</u></h3>
-                <div id="it-skills"></div>
-                
-                <h3 class="paragraph-title"><u>Computer and Software Skills</u></h3>
-                <div id="software-skills"></div>
-                
-                <h3 class="paragraph-title"><u>Artistic Skills</u></h3>
-                <div id="artistic-skills"></div>
-                
-                <h3 class="paragraph-title"><u>Language Skills</u></h3>
-                <div id="language-skills"></div>
-            </div>
-        </div>
 
-        <!-- Resume Section -->
+    <section class="user-info">
+        <img src="" alt="Profile Picture" class="profile-picture">
+        <span class="username"></span>
+        <button id="signin-register-button">Sign-in/Register</button>
+    </section>
+
+    <div class="container">
         <div class="section">
-            <div class="section-header" onclick="toggleSection('resume', 'resumeButton')">
-                <span>Resume/CV</span>
-                <span class="expand-button" id="resumeButton">&#10095;</span>
+            <div class="section-header">
+                <span>User's Posts</span>
             </div>
-            <div class="section-content" id="resume">
-                <iframe id="resume-file" src="" width="100%" height="500px"></iframe>
-                <br>
-                <a id="resume-download" href="" download>Download Resume/CV</a>
+            <div class="section-content-post" id="user-posts-container">
             </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Profile Picture Options</h2>
+            <button id="view-profile-button">View Profile Picture</button>
+            <input type="file" id="change-profile-input" accept="image/*" style="display:none;">
+            <button id="change-profile-button">Change Profile Picture</button>
         </div>
     </div>
 
@@ -105,8 +55,7 @@
             <a href="mailto:jheffersoncastrodossantos@gmail.com"><img src="assets/images/gmail.png" alt="Gmail"></a>
         </div>
     </footer>
-
-    <script src="js/searchedPortfolio.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/user-posts.js"></script>
 </body>
 </html>
