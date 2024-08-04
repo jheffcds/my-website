@@ -777,6 +777,7 @@ canvas {
         opacity: 0;
     }
 }
+
 .wrap {
     display: flex;
     flex-direction: row;
@@ -786,14 +787,19 @@ canvas {
     margin-bottom: 20px;
 }
 
-.wrap ul {
+.list-container {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+}
+
+.list-container ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.wrap ul li {
+.list-container ul li {
     margin-bottom: 10px;
 }
 
@@ -804,7 +810,6 @@ canvas {
     flex: 1;
     max-width: 50%; /* Adjust the maximum width as needed */
 }
-
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
