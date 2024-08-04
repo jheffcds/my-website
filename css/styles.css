@@ -431,12 +431,21 @@ footer p {
     color: white;
 }
 
+.media-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .post-content img,
 .post-content video {
     max-width: 100%;
     height: auto;
     display: block;
     margin-top: 10px;
+    margin: 10px;
     max-height: 300px; /* Added this to scale the images and videos smaller */
 }
 
@@ -911,6 +920,10 @@ canvas {
     .modal-content button {
         width: 100%;
         padding: 10px;
+    }
+
+    .media-container {
+        flex-direction: column;
     }
 }
 

@@ -29,14 +29,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <div class="post-content">
                         <p>${post.content}</p>
-                        ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                            const fullUrl = `${API_BASE_URL}${url}`;
-                            if (url.endsWith('.mp4')) {
-                                return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
-                            } else {
-                                return `<img src="${fullUrl}" alt="Post Media">`;
-                            }
-                        }).join('') : ''}
+                        <div class="media-container">
+                            ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
+                                const fullUrl = `${API_BASE_URL}${url}`;
+                                if (url.endsWith('.mp4')) {
+                                    return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
+                                } else {
+                                    return `<img src="${fullUrl}" alt="Post Media">`;
+                                }
+                            }).join('') : ''}
+                        </div>
                     </div>
                 `;
                 postsContainer.appendChild(postElement);
