@@ -777,6 +777,29 @@ canvas {
         opacity: 0;
     }
 }
+.wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Optional: Adds some space between the list and the chart */
+    margin-bottom: 20px;
+}
+
+.wrap ul {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
