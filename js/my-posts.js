@@ -137,4 +137,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         errorModal.style.display = 'block';
     }
+    // Add the event listener for the hamburger menu
+    const toggleButton = document.getElementById('toggle-button');
+    toggleButton.addEventListener('click', toggleMenu);
+    
 });
