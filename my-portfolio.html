@@ -24,7 +24,7 @@
         <div class="container">
             <!-- Introduction Section -->
             <div class="section">
-                <div class="section-header" onclick="toggleSection('aboutMe')">
+                <div class="section-header" onclick="toggleSection('aboutMe', 'aboutMeButton')">
                     <span>Introduction</span>
                     <span class="expand-button" id="aboutMeButton">&#10095;</span>
                 </div>
@@ -41,7 +41,7 @@
         
             <!-- About Me Section -->
             <div class="section">
-                <div class="section-header" onclick="toggleSection('aboutMeDetails')">
+                <div class="section-header" onclick="toggleSection('aboutMeDetails', 'aboutMeDetailsButton')">
                     <span>About Me</span>
                     <span class="expand-button" id="aboutMeDetailsButton">&#10095;</span>
                 </div>
@@ -69,7 +69,7 @@
         
         
             <div class="section">
-                <div class="section-header" onclick="toggleSection('skills')">
+                <div class="section-header" onclick="toggleSection('skills', 'skillsButton')">
                     <span>Skills/Expertise</span>
                     <span class="expand-button" id="skillsButton">&#10095;</span>
                 </div>
@@ -108,7 +108,7 @@
             </div>
 
             <div class="section">
-                <div class="section-header" onclick="toggleSection('resume')">
+                <div class="section-header" onclick="toggleSection('resume', 'resumeButton')">
                     <span>Resume/CV</span>
                     <span class="expand-button" id="resumeButton">&#10095;</span>
                 </div>
@@ -129,83 +129,5 @@
     </div>
     <script src="js/my-portfolio.js"></script>
     <script src="js/scripts.js"></script>
-    <script>
-        // Data for the charts
-        const programmingSkillsData = {
-            labels: ['JavaScript', 'Python', 'Java', 'C++', 'PHP', 'MongoDB', 'SQL','HTML','React','Github'],
-            datasets: [{
-                label: 'Competence (%)',
-                data: [85, 75, 80, 70, 65,60,70,100,50,90],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const officeSkillsData = {
-            labels: ['Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams'],
-            datasets: [{
-                label: 'Competence (%)',
-                data: [90, 95, 85, 90,100],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const languageSkillsData = {
-            labels: ['Portuguese', 'Italian', 'English', 'Spanish', 'French'],
-            datasets: [{
-                label: 'Competence (%)',
-                data: [100, 100, 90, 65, 50],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        // Create the charts
-        const ctx1 = document.getElementById('programmingSkillsChart').getContext('2d');
-        new Chart(ctx1, {
-            type: 'radar',
-            data: programmingSkillsData,
-            options: {
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-
-        const ctx2 = document.getElementById('officeSkillsChart').getContext('2d');
-        new Chart(ctx2, {
-            type: 'radar',
-            data: officeSkillsData,
-            options: {
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-
-        const ctx3 = document.getElementById('languageSkillsChart').getContext('2d');
-        new Chart(ctx3, {
-            type: 'radar',
-            data: languageSkillsData,
-            options: {
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
