@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (username && profilePicture && userId) {
         document.querySelector('.username').textContent = username;
-        document.querySelector('.profile-picture').src = `${API_BASE_URL}${profilePicture}`;
+        document.querySelector('.profile-picture').src = profilePicture;
 
         try {
             const response = await fetch(`${API_BASE_URL}/user-posts/${userId}`);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 postElement.innerHTML = `
                     <div class="post-header">
                         <div class="post-header-left">
-                            <img src="${API_BASE_URL}${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                            <img src="${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                             <div class="post-info">
                                 <span class="post-author">${post.userId.username}</span>
                                 <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
@@ -31,11 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p>${post.content}</p>
                         <div class="media-container">
                             ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                                const fullUrl = `${API_BASE_URL}${url}`;
                                 if (url.endsWith('.mp4')) {
-                                    return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
+                                    return `<video controls><source src="${url}" type="video/mp4"></video>`;
                                 } else {
-                                    return `<img src="${fullUrl}" alt="Post Media">`;
+                                    return `<img src="${url}" alt="Post Media">`;
                                 }
                             }).join('') : ''}
                         </div>
@@ -180,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 const result = await response.json();
-                profilePictureElement.src = `${API_BASE_URL}${result.profilePicture}`;
+                profilePictureElement.src = result.profilePicture;
                 localStorage.setItem('profilePicture', result.profilePicture);
                 modal.style.display = 'none';
                 location.reload();  // Reload the page to reflect the new profile picture
