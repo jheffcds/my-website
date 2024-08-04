@@ -778,30 +778,6 @@ canvas {
     }
 }
 
-.wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.list-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.list-container ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.list-container ul li {
-    margin-bottom: 10px;
-}
 
 .chart-container {
     display: flex;
@@ -957,10 +933,6 @@ canvas {
 
     .media-container {
         flex-direction: column;
-    }
-    .wrap {
-        flex-direction: column;
-        align-items: center;
     }
 }
 
