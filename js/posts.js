@@ -28,19 +28,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <button class="delete-post-button" data-post-id="${post._id}">Delete</button>
                     </div>
                     <div class="post-content">
-                    <p>${post.content}</p>
-                    <div class="media-container">
-                        ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                            const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.wmv', '.flv', '.mkv'];
-                            const isVideo = videoExtensions.some(ext => url.endsWith(ext));
-                            if (isVideo) {
-                                return `<video controls autoplay><source src="${url}" type="video/${url.split('.').pop()}"></video>`;
-                            } else {
-                                return `<img src="${url}" alt="Post Media">`;
-                            }
-                        }).join('') : ''}
+                        <p>${post.content}</p>
+                        <div class="media-container">
+                            ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
+                                if (url.endsWith('.mp4')) {
+                                    return `<video controls><source src="${url}" type="video/mp4"></video>`;
+                                } else {
+                                    return `<img src="${url}" alt="Post Media">`;
+                                }
+                            }).join('') : ''}
+                        </div>
                     </div>
-                </div>
                 `;
                 postsContainer.appendChild(postElement);
             });
