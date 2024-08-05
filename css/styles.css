@@ -913,7 +913,6 @@ canvas {
 
     .gallery-item.current .gallery-image {
         max-height: 250px;
-        margin: -125px 0;
     }
 
     .gallery-buttons {
