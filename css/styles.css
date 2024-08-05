@@ -179,6 +179,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 50%;
     opacity: 0.3;
     transform: translateY(-50%);
+    z-index: 1;
 }
 
 .gallery-left-container .gallery-item.prev {
@@ -187,6 +188,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery-left-container .gallery-item.next {
     right: 0;
+}
+
+.gallery-item.current {
+    z-index: 3; /* Higher z-index */
 }
 
 .gallery-description {
