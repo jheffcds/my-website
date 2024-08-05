@@ -62,4 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             postsContainer.appendChild(postElement);
         });
     }
+    // Add the event listener for the hamburger menu
+    const toggleButton = document.getElementById('toggle-button');
+    toggleButton.addEventListener('click', toggleMenu);
 });

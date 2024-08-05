@@ -51,3 +51,4 @@ async function fetchData(userId) {
         console.error('Error fetching user data:', error);
     }
 }
+

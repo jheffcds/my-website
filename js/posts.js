@@ -252,4 +252,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error('Error creating post:', error);
         }
     });
+    
+    // Add the event listener for the hamburger menu
+    const toggleButton = document.getElementById('toggle-button');
+    toggleButton.addEventListener('click', toggleMenu);
 });
