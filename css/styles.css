@@ -568,7 +568,7 @@ footer p {
 
 
 .chart-container {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     width: 30%;
@@ -815,10 +815,9 @@ canvas {
 
 
 .chart-container {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
-    flex: 1;
     max-width: 50%; /* Adjust the maximum width as needed */
 }
 
