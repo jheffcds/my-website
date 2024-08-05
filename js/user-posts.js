@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const userInfo = await userInfoResponse.json();
 
         document.querySelector('.username').textContent = userInfo.username;
-        document.querySelector('.profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
+        document.querySelector('.profile-picture').src = userInfo.profilePicture;
 
         // Store user info in localStorage for the searched user
         localStorage.setItem('searchedUser', JSON.stringify(userInfo));
@@ -26,9 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Add event listener to view portfolio button
         const viewPortfolioButton = document.getElementById('view-portfolio-button');
-        viewPortfolioButton.addEventListener('click', () => {
-            window.location.href = `searchedPortfolio.html?userId=${userId}`;
-        });
+        if (viewPortfolioButton) {
+            viewPortfolioButton.addEventListener('click', () => {
+                window.location.href = `searchedPortfolio.html?userId=${userId}`;
+            });
+        }
     } catch (error) {
         console.error('Error fetching user info or posts:', error);
     }
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             postElement.classList.add('post');
             postElement.innerHTML = `
                 <div class="post-header">
-                    <img src="${API_BASE_URL}${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
+                    <img src="${post.userId.profilePicture}" alt="Profile Picture" class="profile-pic"> 
                     <div class="post-info">
                         <span class="post-author">${post.userId.username}</span>
                         <span class="post-date">${new Date(post.createdAt).toLocaleDateString()}</span>
@@ -50,11 +52,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="post-content">
                     <p>${post.content}</p>
                     ${post.imageUrl && post.imageUrl.length ? post.imageUrl.map(url => {
-                        const fullUrl = `${API_BASE_URL}${url}`;
                         if (url.endsWith('.mp4')) {
-                            return `<video controls><source src="${fullUrl}" type="video/mp4"></video>`;
+                            return `<video controls><source src="${url}" type="video/mp4"></video>`;
                         } else {
-                            return `<img src="${fullUrl}" alt="Post Media">`;
+                            return `<img src="${url}" alt="Post Media">`;
                         }
                     }).join('') : ''}
                 </div>
