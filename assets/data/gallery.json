@@ -1,11 +1,11 @@
 [
     {
-        "image": "assets/images/reference.png",
+        "image": "assets/images/reference.gif",
         "description": "Concept and Reference Gathering",
         "text": "Gather reference images and sketches of the character from different angles. References images help you to mount the basis of the object model."
     },
     {
-        "image": "assets/images/base_mesh.png",
+        "image": "assets/images/base_mesh.gif",
         "description": "Base Mesh Creation",
         "text": "Start with a basic shape (such as a sphere) and use modeling tools to form the rough shape of the character."
     },
@@ -15,22 +15,22 @@
         "text": "Using various sculpting brushes to add muscle definition, facial features, and other intricate details."
     },
     {
-        "image": "assets/images/image4.JPG",
+        "image": "assets/images/retopology.gif",
         "description": "Retopology",
         "text": "Create a low-poly version of the high-poly sculpted model. Retopology is the process of recreating the topology of a 3D model to optimize it for animation, rendering, or real-time applications"
     },
     {
-        "image": "assets/images/image5.JPG",
+        "image": "assets/images/uv-wrapping.gif",
         "description": "UV Unwrapping",
         "text": "Unwrapping the model to create a 2D representation of the 3D surface for texturing"
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/texturing.gif",
         "description": "Texturing",
         "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/rigging.gif",
         "description": "Rigging:",
         "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
     },
