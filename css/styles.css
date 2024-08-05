@@ -1,4 +1,3 @@
-/* General styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -15,7 +14,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Navbar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -53,7 +51,6 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-/* Container styles */
 .container {
     flex: 1;
     display: flex;
@@ -62,7 +59,6 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
 }
 
-/* Video section styles */
 .video-container {
     display: flex;
     justify-content: center;
@@ -80,7 +76,6 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
 }
 
-/* Introduction section styles */
 .introduction {
     background-color: white;
     padding: 20px;
@@ -96,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
 }
 
-/* Gallery styles */
+/* Updated Gallery CSS with 3D Effect */
 .gallery {
     display: flex;
     flex-direction: row;
@@ -127,60 +122,73 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none; /* Ensure the gradient doesn't interfere with user interactions */
 }
 
-/* Adjusted Gallery Container Styles */
-.gallery-left-container {
+.gallery-left-container,
+.gallery-right-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+.gallery-left-container {
     overflow: hidden; /* Ensure that the container doesn't overflow */
     position: relative; /* Ensure absolute positioning of images */
-    width: 100%;
+    width: 100%; /* Make sure it takes the full width available */
 }
 
 .gallery-right-container {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 20px;
 }
 
 .gallery-right-container p,
-.gallery-right-container h3 {
+.gallery-right-container h3{
+    margin-left: 40px;
+    margin-right: 10px;
     color: white;
-    margin: 0;
 }
 
 .gallery-item {
     flex: 0 0 auto; /* Prevent flex items from stretching */
+    justify-content: center;
+    align-items: center;
+    position: relative;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 0 -50px;
 }
 
-.gallery-item.prev {
+.gallery-image {
+    max-height: 200px;
+    transition: all 0.5s ease;
+    opacity: 0.4;
+}
+
+.gallery-item.current .gallery-image {
+    max-height: 300px;
+    opacity: 1;
+    z-index: 1;
+    margin: 0 20px;
+}
+
+.gallery-left-container .gallery-item.prev,
+.gallery-left-container .gallery-item.next {
+    position: absolute;
+    top: 50%;
+    opacity: 0.3;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.gallery-left-container .gallery-item.prev {
     left: 0;
-    z-index: 1; /* Lower z-index */
-    opacity: 0.3; /* Make it semi-transparent */
+}
+
+.gallery-left-container .gallery-item.next {
+    right: 0;
 }
 
 .gallery-item.current {
     z-index: 3; /* Higher z-index */
-    opacity: 1;
-}
-
-.gallery-item.next {
-    right: 0;
-    z-index: 1; /* Lower z-index */
-    opacity: 0.3; /* Make it semi-transparent */
-}
-
-.gallery-image {
-    max-height: 300px;
-    max-width: 100%;
-    transition: all 0.5s ease;
 }
 
 .gallery-description {
@@ -208,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #555;
 }
 
-/* Info Image Container styles */
+/* Updated Info Image Container CSS with 3D Effect */
 .info-image-container {
     position: relative; /* For ::before pseudo-element */
     display: flex;
@@ -286,7 +294,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 5px;
 }
 
-/* Footer styles */
 footer {
     display: flex;
     justify-content: space-between;
@@ -307,7 +314,515 @@ footer p {
     margin: 0 5px;
 }
 
-/* Responsive styles */
+/* Portfolio configurations */
+.section {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.section-content {
+    display: none;
+    padding: 10px;
+}
+
+.expand-button {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-text h2 {
+    margin-top: 0;
+}
+
+
+
+/* New CSS for paragraph titles */
+.paragraph-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+/* New CSS for paragraph titles */
+/* Global styles to include box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background: #3a3a3a;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    position: relative; /* For ::before pseudo-element */
+}
+.post:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add new CSS for delete button */
+.delete-post-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 80px;
+}
+
+.delete-post-button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Ensure the post-header has position: relative to position the delete button correctly */
+.post-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-right: 100px; /* Make room for the delete button */
+}
+
+.post-header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Other existing CSS */
+
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author {
+    font-weight: bold;
+    color: white;
+}
+
+.post-date {
+    font-size: 12px;
+    color: #b7b4b4;
+}
+.post-content p {
+    color: white;
+}
+
+.media-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.post-content img,
+.post-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+    margin: 10px;
+    max-height: 300px; /* Added this to scale the images and videos smaller */
+}
+
+.section-content-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+.section-content-post input[type="text"],
+.section-content-post input[type="file"],
+.section-content-post .post-button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.section-content-post input[type="text"] {
+    padding: 10px;
+}
+
+.section-content-post input[type="file"] {
+    padding: 10px;
+}
+
+.section-content-post .post-button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.section-content-post .post-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide the default file input */
+/* Hide the default file input */
+#post-images {
+    display: none;
+}
+
+/* Style for the custom file button */
+/* Hide the default file input */
+#post-media {
+    display: none;
+}
+
+/* Style for the custom file button */
+#custom-file-button {
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+#custom-file-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the media previews */
+#media-preview {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+#media-preview img,
+#media-preview video {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Make height the same as width for a square aspect ratio */
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto 40px;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.user-info .profile-picture, 
+.post-header .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+.user-info .username {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+#signout-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#signout-button:hover {
+    background-color: #0056b3;
+}
+#signin-register-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#signin-register-button:hover {
+    background-color: #0056b3;
+}
+.input-container {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+
+.input-container .post-text {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    transition: all 0.5s ease;
+}
+
+.input-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff, #ffff00, #ff0000);
+    background-size: 400% 400%;
+    border-radius: 5px;
+    z-index: 0;
+    animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-user {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+}
+
+#search-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    margin-left: 10px;
+}
+
+.user-list {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 100;
+}
+
+.user-list div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user-list div:hover {
+    background-color: #f0f0f0;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    background-color: #ff0000;
+    transform: scale(1.1);
+}
+
+/* Redirect Button Styling */
+.redirect-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#view-portfolio-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#view-portfolio-button:hover {
+    background-color: #0056b3;
+}
+
+.my-section {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* To position the pseudo-element correctly */
+    border: 2px solid transparent; /* Initial transparent border */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes blinkAnimation {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-width: 50%; /* Adjust the maximum width as needed */
+}
+
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: row;
@@ -365,6 +880,15 @@ footer p {
         width: 100%;
     }
 
+    .gallery-right-container {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .gallery-item.current .gallery-image {
+        max-height: 250px;
+        margin: 0;
+    }
     .gallery-item {
         margin: 10px 0;
         position: relative;
@@ -374,12 +898,13 @@ footer p {
         max-height: 150px;
     }
 
-    .gallery-right-container {
-        width: 100%;
-        padding: 0;
-        margin-top: 20px;
+    .info-image-container {
+        flex-direction: column;
     }
 
+    .info-container, .image-container {
+        width: calc(100% - 20px);
+    }
     .gallery-right-container p,
     .gallery-right-container h3 {
         margin-left: 10px;
@@ -388,7 +913,7 @@ footer p {
 
     .gallery-item.current .gallery-image {
         max-height: 250px;
-        margin: 0;
+        margin: -125px 0;
     }
 
     .gallery-buttons {
@@ -402,12 +927,15 @@ footer p {
         width: 100px;
     }
 
-    .info-image-container {
-        flex-direction: column;
+    .info-buttons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
     }
 
-    .info-container, .image-container {
-        width: calc(100% - 20px);
+    .info-buttons button {
+        margin: 5px 0;
+        width: 100px;
     }
 
     footer {
@@ -438,7 +966,6 @@ footer p {
     .intro-text {
         text-align: center;
     }
-
     .modal-content {
         width: 95%; 
         margin: 10% auto; 
@@ -468,7 +995,6 @@ footer p {
     .navbar .menu a {
         padding: 5px 0;
     }
-
     .user-info .username {
         font-size: 16px;
     }
@@ -496,9 +1022,34 @@ footer p {
     .info-buttons button {
         width: 80px;
     }
-
     .profile-image {
         width: 80px;
         height: 80px;
     }
+}
+/* Modal Image Styling */
+.modal-content-my-posts img {
+    max-width: 90%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
+/* Style for close button */
+.close-image-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.close-image-modal:hover {
+    background-color: #ff0000;
+    transform: scale(1.1);
 }
