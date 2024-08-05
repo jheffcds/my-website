@@ -641,7 +641,7 @@ canvas {
 .input-container {
     position: relative;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
 }
 
 .input-container .post-text {
@@ -662,7 +662,7 @@ canvas {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff, #ffff00, #ff0000);
+    background: linear-gradient(60deg, #ffffff, #ffffff, #808080, #808080, #ffd700, #ffffff, #000000);
     background-size: 400% 400%;
     border-radius: 5px;
     z-index: 0;
