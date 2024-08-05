@@ -135,7 +135,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .gallery-right-container p,
 .gallery-right-container h3{
-    margin-left: 30px;
+    margin-left: 90px;
+    margin-right: 10px;
     color: white;
 }
 
@@ -867,7 +868,7 @@ canvas {
     .gallery-right-container p,
     .gallery-right-container h3 {
         margin-left: 10px;
-        margin-right: 20px;
+        margin-right: 10px;
     }
 
     .gallery-item.current .gallery-image {
