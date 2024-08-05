@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadInfoData(); // Load info data
 
     // Add event listener to open modal on current gallery image click
-    const currentImage = document.getElementById('currentImageContainer');
+    const currentImage = document.getElementById('currentImage');
     currentImage.addEventListener('click', openModal);
 
     // Add event listeners to images in the image-container
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     closeModalButton.addEventListener('click', closeModal);
 });
 
+
 // Function to change the gallery image
 function changeImage(direction) {
     if (images.length === 0) return;
@@ -36,9 +37,9 @@ function changeImage(direction) {
     const prevImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     const nextImageIndex = (currentImageIndex + 1) % images.length;
 
-    updateMediaElement('prevImageContainer', images[prevImageIndex].image);
-    updateMediaElement('currentImageContainer', images[currentImageIndex].image);
-    updateMediaElement('nextImageContainer', images[nextImageIndex].image);
+    document.getElementById('prevImage').src = images[prevImageIndex].image;
+    document.getElementById('currentImage').src = images[currentImageIndex].image;
+    document.getElementById('nextImage').src = images[nextImageIndex].image;
     document.getElementById('currentDescription').textContent = images[currentImageIndex].description;
     document.getElementById('currentText').textContent = images[currentImageIndex].text;
 
@@ -47,25 +48,6 @@ function changeImage(direction) {
     galleryItems[1].classList.add('current');
 }
 
-// Function to update the media element (image or GIF)
-function updateMediaElement(containerId, mediaSrc) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    const mediaType = mediaSrc.split('.').pop().toLowerCase();
-    
-    if (mediaType === 'gif') {
-        const video = document.createElement('video');
-        video.src = mediaSrc;
-        video.autoplay = true;
-        video.loop = true;
-        video.muted = true;
-        container.appendChild(video);
-    } else {
-        const img = document.createElement('img');
-        img.src = mediaSrc;
-        container.appendChild(img);
-    }
-}
 
 // Function to change the information display
 function changeInfo(direction) {
@@ -121,10 +103,9 @@ function openModal() {
     const captionText = document.getElementById('caption');
 
     modal.style.display = "block";
-    const mediaSrc = images[currentImageIndex].image;
-    updateMediaElement('modalImage', mediaSrc);
+    modalImg.src = images[currentImageIndex].image;
     captionText.innerHTML = images[currentImageIndex].description;
-    document.body.classList.add('body-modal-open');
+    document.body.classList.add('body-modal-open'); // Add class to body
 }
 
 // Function to open modal with specific image
@@ -134,9 +115,9 @@ function openModalWithImage(image) {
     const captionText = document.getElementById('caption');
 
     modal.style.display = "block";
-    updateMediaElement('modalImage', image.src);
-    captionText.innerHTML = image.alt || '';
-    document.body.classList.add('body-modal-open');
+    modalImg.src = image.src;
+    captionText.innerHTML = image.alt || ''; // Use alt text as description if available
+    document.body.classList.add('body-modal-open'); // Add class to body
 }
 
 // Function to close modal
