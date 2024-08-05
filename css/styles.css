@@ -128,6 +128,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .gallery-left-container {
@@ -135,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .gallery-right-container p,
 .gallery-right-container h3{
-    margin-left: 90px;
+    margin-left: 40px;
     margin-right: 10px;
     color: white;
 }
