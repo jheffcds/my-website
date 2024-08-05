@@ -580,9 +580,6 @@ canvas {
     height: auto !important;
 }
 
-
-
-
 /* User Info Styles */
 .user-info {
     display: flex;
@@ -596,13 +593,17 @@ canvas {
 
 .user-info .profile-picture, 
 .post-header .profile-pic {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin-right: 10px;
     object-fit: cover; /* Ensures the image maintains its aspect ratio */
 }
 
+.post .profile-picture {
+    width: 50px;
+    height: 50px;
+}
 .user-info .username {
     font-size: 18px;
     font-weight: bold;

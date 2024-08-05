@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     }
+    // Add the event listener for the hamburger menu
+    const toggleButton = document.getElementById('toggle-button');
+    toggleButton.addEventListener('click', toggleMenu);
 });
 
 function toggleSection(sectionId, buttonId) {
