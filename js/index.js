@@ -40,6 +40,7 @@ function changeImage(direction) {
     document.getElementById('currentImage').src = images[currentImageIndex].image;
     document.getElementById('nextImage').src = images[nextImageIndex].image;
     document.getElementById('currentDescription').textContent = images[currentImageIndex].description;
+    document.getElementById('currentText').textContent = images[currentImageIndex].text;
 
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(item => item.classList.remove('current'));
@@ -92,7 +93,6 @@ function loadImages() {
         })
         .catch(error => console.error('Error loading images:', error));
 }
-
 
 // Function to open modal
 function openModal() {

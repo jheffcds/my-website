@@ -133,6 +133,10 @@ h1, h2, h3, h4, h5, h6 {
 .gallery-left-container {
     flex-direction: row;
 }
+.gallery-right-container p,
+.gallery-right-container h3{
+    color: white;
+}
 
 .gallery-item {
     display: flex;

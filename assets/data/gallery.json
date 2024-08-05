@@ -1,26 +1,32 @@
 [
     {
         "image": "assets/images/image1.jpg",
-        "description": "Description for image 1"
+        "description": "Concept and Reference Gathering",
+        "text": "Gather reference images and sketches of the character from different angles"
     },
     {
         "image": "assets/images/image2.jpg",
-        "description": "Description for image 2"
+        "description": "Base Mesh Creation",
+        "text": "Start with a basic shape (such as a sphere) and use modeling tools to form the rough shape of the character."
     },
     {
         "image": "assets/images/image3.jpg",
-        "description": "Description for image 3"
+        "description": "Sculpting",
+        "text": "Using various sculpting brushes to add muscle definition, facial features, and other intricate details."
     },
     {
         "image": "assets/images/image4.JPG",
-        "description": "Description for image 4"
+        "description": "Retopology",
+        "text": "Create a low-poly version of the high-poly sculpted model. Retopology is the process of recreating the topology of a 3D model to optimize it for animation, rendering, or real-time applications"
     },
     {
         "image": "assets/images/image5.JPG",
-        "description": "Description for image 5"
+        "description": "UV Unwrapping",
+        "text": "Unwrapping the model to create a 2D representation of the 3D surface for texturing"
     },
     {
         "image": "assets/images/image6.JPG",
-        "description": "Description for image 6"
+        "description": "Texturing",
+        "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
     }
 ]
