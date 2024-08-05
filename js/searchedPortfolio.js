@@ -38,7 +38,7 @@ async function fetchData(userId) {
             return;
         }
 
-        document.getElementById('profile-picture').src = `${API_BASE_URL}${userInfo.profilePicture}`;
+        document.getElementById('profile-picture').src = userInfo.profilePicture;
         document.getElementById('welcome-portfolio').innerText = `Welcome to ${userInfo.username}'s Portfolio!`;
 
         // Fetch and set sections content
@@ -54,4 +54,3 @@ async function fetchData(userId) {
         console.error('Error fetching user data:', error);
     }
 }
-
