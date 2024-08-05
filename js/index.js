@@ -47,6 +47,7 @@ function changeImage(direction) {
     galleryItems[1].classList.add('current');
 }
 
+
 // Function to change the information display
 function changeInfo(direction) {
     if (infoData.length === 0) return;

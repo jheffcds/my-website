@@ -132,7 +132,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-left-container {
-    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure that the container doesn't overflow */
+    position: relative; /* Ensure absolute positioning of images */
+    width: 100%; /* Make sure it takes the full width available */
 }
 .gallery-right-container p,
 .gallery-right-container h3{
@@ -142,25 +147,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    flex: 0 0 auto; /* Prevent flex items from stretching */
     transition: transform 0.5s ease, opacity 0.5s ease;
-    margin: 0 -50px;
 }
 
 .gallery-image {
-    max-height: 200px;
+    max-height: 300px;
+    max-width: 100%;
     transition: all 0.5s ease;
     opacity: 0.4;
+    margin: 0 20px;
 }
 
 .gallery-item.current .gallery-image {
-    max-height: 300px;
     opacity: 1;
     z-index: 1;
-    margin: 0 20px;
+}
+.gallery-left-container .gallery-item.prev {
+    left: 0;
+}
+.gallery-left-container .gallery-item.next {
+    right: 0;
+}
+
+.gallery-left-container .gallery-item.prev,
+.gallery-left-container .gallery-item.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .gallery-description {
