@@ -1,16 +1,16 @@
 [
     {
-        "image": "assets/images/image1.jpg",
+        "image": "assets/images/reference.png",
         "description": "Concept and Reference Gathering",
-        "text": "Gather reference images and sketches of the character from different angles"
+        "text": "Gather reference images and sketches of the character from different angles. References images help you to mount the basis of the object model."
     },
     {
-        "image": "assets/images/image2.jpg",
+        "image": "assets/images/base_mesh.png",
         "description": "Base Mesh Creation",
         "text": "Start with a basic shape (such as a sphere) and use modeling tools to form the rough shape of the character."
     },
     {
-        "image": "assets/images/image3.jpg",
+        "image": "assets/images/sculpting.gif",
         "description": "Sculpting",
         "text": "Using various sculpting brushes to add muscle definition, facial features, and other intricate details."
     },
@@ -28,5 +28,35 @@
         "image": "assets/images/image6.JPG",
         "description": "Texturing",
         "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Rigging:",
+        "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Skinning and Weight Painting",
+        "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Animation",
+        "text": "Games use animation to provide interactive narratives, where player choices influence the story's progression, enhancing engagement and replayability."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Shading and Lighting",
+        "text": "Lighting is essential to make objects and scenes visible. It ensures that all elements in a scene can be seen clearly by the viewer. Proper lighting directs the viewer’s attention to specific areas or objects within a scene, highlighting the most important aspects.Lighting simulates natural light sources such as the sun, moon, or artificial light, making the scene look more realistic."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Rendering",
+        "text": "Rendering converts the 3D models, textures, and lighting setups into a 2D image or animation, making it possible to display the 3D content on screens or in print."
+    },
+    {
+        "image": "assets/images/image6.JPG",
+        "description": "Exporting",
+        "text": "It involves converting and saving 3D models, textures, animations, and other assets into a format that can be used in other software, platforms, or hardware."
     }
 ]
