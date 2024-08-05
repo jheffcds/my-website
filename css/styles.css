@@ -818,7 +818,7 @@ canvas {
     display: block;
     justify-content: center;
     align-items: center;
-    max-width: 50%; /* Adjust the maximum width as needed */
+    max-width: 80%; /* Adjust the maximum width as needed */
 }
 
 /* Media Queries for Responsive Design */
