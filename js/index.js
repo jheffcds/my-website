@@ -27,6 +27,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
     closeModalButton.addEventListener('click', closeModal);
 });
 
+// Function to preload images
+function preloadImages(data) {
+    return Promise.all(data.map(item => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = item.image;
+            img.onload = () => resolve(item);
+            img.onerror = reject;
+        });
+    }));
+}
+
+// Function to load gallery images
+function loadImages() {
+    fetch('assets/data/gallery.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            preloadImages(data)
+                .then(preloadedData => {
+                    images = preloadedData;
+                    changeImage(0); // Initialize with the first image
+                })
+                .catch(error => console.error('Error preloading images:', error));
+        })
+        .catch(error => console.error('Error loading images:', error));
+}
 
 // Function to change the gallery image
 function changeImage(direction) {
@@ -37,17 +68,27 @@ function changeImage(direction) {
     const prevImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     const nextImageIndex = (currentImageIndex + 1) % images.length;
 
-    document.getElementById('prevImage').src = images[prevImageIndex].image;
-    document.getElementById('currentImage').src = images[currentImageIndex].image;
-    document.getElementById('nextImage').src = images[nextImageIndex].image;
-    document.getElementById('currentDescription').textContent = images[currentImageIndex].description;
-    document.getElementById('currentText').textContent = images[currentImageIndex].text;
+    const prevImageElement = document.getElementById('prevImage');
+    const currentImageElement = document.getElementById('currentImage');
+    const nextImageElement = document.getElementById('nextImage');
+
+    // Update image sources
+    prevImageElement.src = images[prevImageIndex].image;
+    nextImageElement.src = images[nextImageIndex].image;
+
+    // Update the current image and text after the image has loaded
+    const newImage = new Image();
+    newImage.src = images[currentImageIndex].image;
+    newImage.onload = () => {
+        currentImageElement.src = newImage.src;
+        document.getElementById('currentDescription').textContent = images[currentImageIndex].description;
+        document.getElementById('currentText').textContent = images[currentImageIndex].text;
+    };
 
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(item => item.classList.remove('current'));
     galleryItems[1].classList.add('current');
 }
-
 
 // Function to change the information display
 function changeInfo(direction) {
@@ -78,22 +119,6 @@ function loadInfoData() {
             changeInfo(0); // Initialize with the first data
         })
         .catch(error => console.error('Error loading info data:', error));
-}
-
-// Function to load gallery images
-function loadImages() {
-    fetch('assets/data/gallery.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            images = data;
-            changeImage(0); // Initialize with the first image
-        })
-        .catch(error => console.error('Error loading images:', error));
 }
 
 // Function to open modal

@@ -31,8 +31,8 @@
     },
     {
         "image": "assets/images/rigging.gif",
-        "description": "Rigging:",
-        "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
+        "description": "Rigging",
+        "text": "Rigging in Blender (or in any 3D modeling software) refers to the process of creating a skeleton (or armature) for a 3D model to allow it to move and be posed. This skeleton is made up of bones that are interconnected in a hierarchical structure, much like the human skeleton. Each bone can control a part of the 3D model, allowing for realistic and complex movements."
     },
     {
         "image": "assets/images/image6.JPG",
