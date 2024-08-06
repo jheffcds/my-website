@@ -850,18 +850,24 @@ canvas {
 }
 
 .spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
+
+/* Optional: Dark background for contrast */
+body.loading-active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
