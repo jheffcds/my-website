@@ -63,12 +63,33 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: linear-gradient(60deg, #ffffff, #ffffff, #808080, #808080, #ffd700, #ffffff, #000000);
     padding: 20px;
     margin-bottom: 20px;
     flex: 1;
     border-radius: 10px;
+    animation: backgroundAnimation 10s infinite;
 }
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(60deg, #ffffff, #ffffff, #808080, #808080, #ffd700, #ffffff, #000000);
+    }
+    25% {
+        background: linear-gradient(60deg, #ffd700, #ffffff, #000000, #808080, #ffffff, #808080, #ffffff);
+    }
+    50% {
+        background: linear-gradient(60deg, #000000, #ffd700, #ffffff, #808080, #ffffff, #808080, #ffffff);
+    }
+    75% {
+        background: linear-gradient(60deg, #808080, #ffffff, #000000, #ffffff, #ffd700, #808080, #ffffff);
+    }
+    100% {
+        background: linear-gradient(60deg, #ffffff, #ffffff, #808080, #808080, #ffd700, #ffffff, #000000);
+    }
+}
+
+
 
 .video-container video {
     width: 100%;
