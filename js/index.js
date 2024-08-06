@@ -7,8 +7,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const toggleButton = document.getElementById('toggle-button');
     toggleButton.addEventListener('click', toggleMenu);
     
-    loadImages(); // Load gallery images
-    loadInfoData(); // Load info data
+    showLoading(); // Show loading animation
+    Promise.all([loadImages(), loadInfoData()])
+        .then(() => {
+            hideLoading(); // Hide loading animation
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            hideLoading(); // Ensure loading animation is hidden even if there's an error
+        });
 
     // Add event listener to open modal on current gallery image click
     const currentImage = document.getElementById('currentImage');
@@ -27,6 +34,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     closeModalButton.addEventListener('click', closeModal);
 });
 
+// Function to show loading animation
+function showLoading() {
+    document.getElementById('loading').classList.remove('hidden');
+}
+
+// Function to hide loading animation
+function hideLoading() {
+    document.getElementById('loading').classList.add('hidden');
+}
+
 // Function to preload images
 function preloadImages(data) {
     return Promise.all(data.map(item => {
@@ -41,22 +58,18 @@ function preloadImages(data) {
 
 // Function to load gallery images
 function loadImages() {
-    fetch('assets/data/gallery.json')
+    return fetch('assets/data/gallery.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        .then(data => {
-            preloadImages(data)
-                .then(preloadedData => {
-                    images = preloadedData;
-                    changeImage(0); // Initialize with the first image
-                })
-                .catch(error => console.error('Error preloading images:', error));
-        })
-        .catch(error => console.error('Error loading images:', error));
+        .then(data => preloadImages(data))
+        .then(preloadedData => {
+            images = preloadedData;
+            changeImage(0); // Initialize with the first image
+        });
 }
 
 // Function to change the gallery image
@@ -107,7 +120,7 @@ function changeInfo(direction) {
 
 // Function to load information data
 function loadInfoData() {
-    fetch('assets/data/info.json')
+    return fetch('assets/data/info.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -117,8 +130,7 @@ function loadInfoData() {
         .then(data => {
             infoData = data;
             changeInfo(0); // Initialize with the first data
-        })
-        .catch(error => console.error('Error loading info data:', error));
+        });
 }
 
 // Function to open modal
