@@ -35,27 +35,27 @@
         "text": "Rigging in Blender (or in any 3D modeling software) refers to the process of creating a skeleton (or armature) for a 3D model to allow it to move and be posed. This skeleton is made up of bones that are interconnected in a hierarchical structure, much like the human skeleton. Each bone can control a part of the 3D model, allowing for realistic and complex movements."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/weight-paint.gif",
         "description": "Skinning and Weight Painting",
-        "text": "Texturing is the process of applying images or patterns (textures) to the surface of a 3D model to give it color, detail, and realism. These textures can include colors, patterns, and images that define how the surface of the model looks. The textures are mapped onto the 3D model using UV coordinates, which define how the 2D texture wraps around the 3D object."
+        "text": "the process of painting weights onto the vertices of a mesh to control how much influence each bone in the skeleton has on different parts of the mesh. This allows for smooth and realistic deformation of the model during animation."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/animation.gif",
         "description": "Animation",
         "text": "Games use animation to provide interactive narratives, where player choices influence the story's progression, enhancing engagement and replayability."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/lightening.gif",
         "description": "Shading and Lighting",
         "text": "Lighting is essential to make objects and scenes visible. It ensures that all elements in a scene can be seen clearly by the viewer. Proper lighting directs the viewer’s attention to specific areas or objects within a scene, highlighting the most important aspects.Lighting simulates natural light sources such as the sun, moon, or artificial light, making the scene look more realistic."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/rendering.gif",
         "description": "Rendering",
         "text": "Rendering converts the 3D models, textures, and lighting setups into a 2D image or animation, making it possible to display the 3D content on screens or in print."
     },
     {
-        "image": "assets/images/image6.JPG",
+        "image": "assets/images/exporting.gif",
         "description": "Exporting",
         "text": "It involves converting and saving 3D models, textures, animations, and other assets into a format that can be used in other software, platforms, or hardware."
     }
