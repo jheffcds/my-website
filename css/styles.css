@@ -863,6 +863,12 @@ canvas {
     to { transform: rotate(360deg); }
 }
 
+.loading-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #3498db;
+}
+
 /* Optional: Dark background for contrast */
 body.loading-active {
     background-color: rgba(0, 0, 0, 0.5);

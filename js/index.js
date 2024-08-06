@@ -2,19 +2,32 @@ let currentImageIndex = 0;
 let currentInfoIndex = 0;
 let infoData = [];
 let images = [];
+let loadingMessages = [
+    "loading contents...",
+    "We are almost there...",
+    "hold on, it's almost ready...",
+    "oh boy, we are almost there...",
+    "and... Voilà!",
+    "not yet?"
+];
+let loadingMessageIndex = 0;
+let loadingTextInterval;
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const toggleButton = document.getElementById('toggle-button');
     toggleButton.addEventListener('click', toggleMenu);
     
     showLoading(); // Show loading animation
+    startLoadingTextAnimation(); // Start the loading text animation
     Promise.all([loadImages(), loadInfoData()])
         .then(() => {
             hideLoading(); // Hide loading animation
+            stopLoadingTextAnimation(); // Stop the loading text animation
         })
         .catch(error => {
             console.error('Error loading data:', error);
             hideLoading(); // Ensure loading animation is hidden even if there's an error
+            stopLoadingTextAnimation(); // Stop the loading text animation
         });
 
     // Add event listener to open modal on current gallery image click
@@ -42,6 +55,20 @@ function showLoading() {
 // Function to hide loading animation
 function hideLoading() {
     document.getElementById('loading').classList.add('hidden');
+}
+
+// Function to start the loading text animation
+function startLoadingTextAnimation() {
+    const loadingTextElement = document.getElementById('loading-text');
+    loadingTextInterval = setInterval(() => {
+        loadingMessageIndex = (loadingMessageIndex + 1) % loadingMessages.length;
+        loadingTextElement.textContent = loadingMessages[loadingMessageIndex];
+    }, 3000);
+}
+
+// Function to stop the loading text animation
+function stopLoadingTextAnimation() {
+    clearInterval(loadingTextInterval);
 }
 
 // Function to preload images
