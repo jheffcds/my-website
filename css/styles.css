@@ -823,8 +823,12 @@ canvas {
 }
 
 /* Loading animation styles */
+.gallery-wrapper {
+    position: relative;
+}
+
 .loading {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -858,7 +862,6 @@ canvas {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
