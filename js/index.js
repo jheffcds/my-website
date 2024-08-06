@@ -63,7 +63,7 @@ function startLoadingTextAnimation() {
     loadingTextInterval = setInterval(() => {
         loadingMessageIndex = (loadingMessageIndex + 1) % loadingMessages.length;
         loadingTextElement.textContent = loadingMessages[loadingMessageIndex];
-    }, 3000);
+    }, 5000);
 }
 
 // Function to stop the loading text animation

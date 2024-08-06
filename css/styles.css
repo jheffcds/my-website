@@ -835,6 +835,7 @@ canvas {
     height: 100%;
     background: rgba(255, 255, 255, 0.8);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -867,6 +868,7 @@ canvas {
     margin-top: 20px;
     font-size: 1.2em;
     color: #3498db;
+    text-align: center;
 }
 
 /* Optional: Dark background for contrast */
